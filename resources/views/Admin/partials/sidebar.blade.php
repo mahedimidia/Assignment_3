@@ -1,7 +1,7 @@
  <aside class="w-64 bg-white shadow-md p-4">
       <h2 class="text-2xl font-bold mb-6">Admin Panel</h2>
       <nav class="space-y-3">
-        <a href="#dashboard" class="block px-3 py-2 rounded-lg hover:bg-gray-200 font-semibold">Dashboard</a>
+        <a href="{{ route('admin.dashboard') }}" class="block px-3 py-2 rounded-lg hover:bg-gray-200 font-semibold">Dashboard</a>
 
         <!-- Posts Dropdown -->
         <div>

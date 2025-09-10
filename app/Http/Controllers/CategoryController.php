@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Post;
+use Illuminate\support\Facades\Auth;
+use Illuminate\support\Str;
+
 
 class CategoryController extends Controller
 {
@@ -29,6 +33,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'slug' => 'nullable|string',
+        ]);
+
+        Category::create([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+            'user_id' => Auth::id(),
+        ]);
+
+        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
         
     }
 
@@ -45,7 +61,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data=Category::findOrFail($id);
+        return view('Admin.edit_category',compact('data'));
     }
 
     /**
@@ -53,7 +70,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'slug' => 'nullable|string',
+        ]);
+
+        $category = Category::findOrFail($id);
+        $category->update([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+            'user_id' => Auth::id(),
+        ]);
+
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
     }
 
     /**
@@ -61,6 +90,9 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
     }
 }
