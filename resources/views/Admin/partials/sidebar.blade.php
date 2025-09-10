@@ -11,7 +11,7 @@
           </button>
           <div id="postsMenu" class="ml-4 mt-1 hidden space-y-1">
             <a href="{{route('posts.create')}}" class="block px-3 py-2 rounded-lg hover:bg-gray-200">Create Post</a>
-            <a href="#show_post" class="block px-3 py-2 rounded-lg hover:bg-gray-200">Show Posts</a>
+            <a href="{{route('posts.index')}}" class="block px-3 py-2 rounded-lg hover:bg-gray-200">Show Posts</a>
           </div>
         </div>
 
@@ -23,7 +23,7 @@
           </button>
           <div id="categoriesMenu" class="ml-4 mt-1 hidden space-y-1">
             <a href="{{route('categories.create')}}" class="block px-3 py-2 rounded-lg hover:bg-gray-200">Create Category</a>
-            <a href="#show_category" class="block px-3 py-2 rounded-lg hover:bg-gray-200">Show Categories</a>
+            <a href="{{route('categories.index')}}" class="block px-3 py-2 rounded-lg hover:bg-gray-200">Show Categories</a>
           </div>
         </div>
 
