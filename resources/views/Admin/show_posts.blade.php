@@ -33,7 +33,6 @@
                         <th class="py-3 px-4 text-left">Author</th>
                         <th class="py-3 px-4 text-left">Body</th>
                         <th class="py-3 px-4 text-left">Category</th>
-                        <th class="py-3 px-4 text-left">User</th>
                         <th class="py-3 px-4 text-left">Status</th>
                         <th class="py-3 px-4 text-center">Actions</th>
                     </tr>
@@ -48,8 +47,7 @@
                                 {{ \Illuminate\Support\Str::limit($post->body, 50) }}
                             </td>
                             <td class="py-3 px-4">{{ $post->category->name ?? 'N/A' }}</td>
-                            <td class="py-3 px-4">{{ $post->user->name ?? 'N/A' }}</td>
-
+                            
                             <!-- Status -->
                             <td class="py-3 px-4 text-center">
                                 @can('status-update', $post)

@@ -18,9 +18,14 @@ class CategoryController extends Controller
     {
         $user = Auth::user();
         if($user->role === 'admin'){
-            return view('Admin.show_categories', ['categories' => Category::all()]);
+            return view('Admin.show_categories', 
+            [
+                'categories' => Category::get(),
+            ]);
         }else{
-            return view('Admin.show_categories', ['categories' => Category::where('user_id', $user->id)->get()]);
+            return view('Admin.show_categories', [
+                'categories' => Category::where('user_id', $user->id)->get()
+            ]);
         }
 
     }

@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
             return $user->id === $post->user_id;
         });
 
-        Gate::define('status-update', function (User $user, Post $post) {
+        Gate::define('status-update', function (User $user) {
             // Only admin can change post status
             return $user->role === 'admin';
         });

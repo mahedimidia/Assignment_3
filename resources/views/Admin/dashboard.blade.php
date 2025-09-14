@@ -12,66 +12,40 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
           <div class="bg-white p-6 rounded-2xl shadow">
             <p class="text-gray-600 text-sm">Total Posts</p>
-            <p class="text-xl font-bold">120</p>
+            <p class="text-xl font-bold">{{ $postCount }}</p>
           </div>
           <div class="bg-white p-6 rounded-2xl shadow">
             <p class="text-gray-600 text-sm">Categories</p>
-            <p class="text-xl font-bold">8</p>
+            <p class="text-xl font-bold">{{ $categoryCount }}</p>
           </div>
           <div class="bg-white p-6 rounded-2xl shadow">
             <p class="text-gray-600 text-sm">Users</p>
-            <p class="text-xl font-bold">342</p>
+            <p class="text-xl font-bold">{{ $userCount }}</p>
           </div>
+          
+          @can('status-update')
           <div class="bg-white p-6 rounded-2xl shadow">
             <p class="text-gray-600 text-sm">Comments</p>
-            <p class="text-xl font-bold">542</p>
+            <p class="text-xl font-bold">{{ rand(1, 500) }}</p>
           </div>
+          @endcan
         </div>
 
         <!-- Quick Actions -->
         <div class="bg-white p-6 rounded-2xl shadow">
           <h3 class="text-lg font-semibold mb-4">Quick Actions</h3>
           <div class="flex gap-3 flex-wrap">
-            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700">New Post</button>
-            <button class="bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700">New Category</button>
-            <button class="bg-purple-600 text-white px-4 py-2 rounded-lg shadow hover:bg-purple-700">Add User</button>
+            <a href="{{ route('posts.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700">New Post</a>
+            <a href="{{ route('categories.create') }}" class="bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700">New Category</a>
           </div>
         </div>
       </section>
 
-      <!-- Create Post -->
-      <section id="create_post">
-        <div class="bg-white p-6 rounded-2xl shadow">
-          <h2 class="text-xl font-bold">Create Post</h2>
-          <p class="text-gray-600 mt-2">Form for creating new post goes here.</p>
-        </div>
-      </section>
-
-      <!-- Show Posts -->
-      <section id="show_post">
-        <div class="bg-white p-6 rounded-2xl shadow">
-          <h2 class="text-xl font-bold">Show Posts</h2>
-          <p class="text-gray-600 mt-2">List of posts will appear here.</p>
-        </div>
-      </section>
-
-      <!-- Create Category -->
-      <section id="create_category">
-        <div class="bg-white p-6 rounded-2xl shadow">
-          <h2 class="text-xl font-bold">Create Category</h2>
-          <p class="text-gray-600 mt-2">Form for creating new category goes here.</p>
-        </div>
-      </section>
-
-      <!-- Show Categories -->
-      <section id="show_category">
-        <div class="bg-white p-6 rounded-2xl shadow">
-          <h2 class="text-xl font-bold">Show Categories</h2>
-          <p class="text-gray-600 mt-2">List of categories will appear here.</p>
-        </div>
-      </section>
+     
+      
 
       <!-- Users -->
+      @can('status-update')
       <section id="users">
         <div class="bg-white p-6 rounded-2xl shadow">
           <h2 class="text-xl font-bold mb-4">User Management</h2>
@@ -86,39 +60,24 @@
               </tr>
             </thead>
             <tbody>
+              @foreach ($users as $user)
               <tr>
-                <td class="border p-2 text-center">1</td>
-                <td class="border p-2">Admin User</td>
-                <td class="border p-2">admin@example.com</td>
-                <td class="border p-2">Admin</td>
+                <td class="border p-2 text-center">{{ $user->id }}</td>
+                <td class="border p-2">{{ $user->name }}</td>
+                <td class="border p-2">{{ $user->email }}</td>
+                <td class="border p-2">{{ $user->role }}</td>
                 <td class="border p-2 text-center space-x-2">
                   <button class="px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600">Edit</button>
                   <button class="px-3 py-1 bg-red-600 text-white rounded-lg hover:bg-red-700">Delete</button>
                 </td>
               </tr>
-              <tr>
-                <td class="border p-2 text-center">2</td>
-                <td class="border p-2">John Doe</td>
-                <td class="border p-2">john@example.com</td>
-                <td class="border p-2">Editor</td>
-                <td class="border p-2 text-center space-x-2">
-                  <button class="px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600">Edit</button>
-                  <button class="px-3 py-1 bg-red-600 text-white rounded-lg hover:bg-red-700">Delete</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="border p-2 text-center">3</td>
-                <td class="border p-2">Jane Smith</td>
-                <td class="border p-2">jane@example.com</td>
-                <td class="border p-2">Author</td>
-                <td class="border p-2 text-center space-x-2">
-                  <button class="px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600">Edit</button>
-                  <button class="px-3 py-1 bg-red-600 text-white rounded-lg hover:bg-red-700">Delete</button>
-                </td>
-              </tr>
+              @endforeach
+
             </tbody>
           </table>
         </div>
       </section>
+      @endcan
+
     </main>
 @endsection
