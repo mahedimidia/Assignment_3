@@ -3,6 +3,18 @@
       <nav class="space-y-3">
         <a href="{{ route('admin.dashboard') }}" class="block px-3 py-2 rounded-lg hover:bg-gray-200 font-semibold">Dashboard</a>
 
+        <!-- Categories Dropdown -->
+        <div>
+          <button onclick="toggleDropdown('categoriesMenu')" class="w-full flex justify-between items-center px-3 py-2 rounded-lg hover:bg-gray-200">
+            <span>Categories</span>
+            <span>▼</span>
+          </button>
+          <div id="categoriesMenu" class="ml-4 mt-1 hidden space-y-1">
+            <a href="{{route('categories.create')}}" class="block px-3 py-2 rounded-lg hover:bg-gray-200">Create Category</a>
+            <a href="{{route('categories.index')}}" class="block px-3 py-2 rounded-lg hover:bg-gray-200">Show Categories</a>
+          </div>
+        </div>
+        
         <!-- Posts Dropdown -->
         <div>
           <button onclick="toggleDropdown('postsMenu')" class="w-full flex justify-between items-center px-3 py-2 rounded-lg hover:bg-gray-200">
@@ -15,17 +27,7 @@
           </div>
         </div>
 
-        <!-- Categories Dropdown -->
-        <div>
-          <button onclick="toggleDropdown('categoriesMenu')" class="w-full flex justify-between items-center px-3 py-2 rounded-lg hover:bg-gray-200">
-            <span>Categories</span>
-            <span>▼</span>
-          </button>
-          <div id="categoriesMenu" class="ml-4 mt-1 hidden space-y-1">
-            <a href="{{route('categories.create')}}" class="block px-3 py-2 rounded-lg hover:bg-gray-200">Create Category</a>
-            <a href="{{route('categories.index')}}" class="block px-3 py-2 rounded-lg hover:bg-gray-200">Show Categories</a>
-          </div>
-        </div>
+        
 
        
         <a href="#settings" class="block px-3 py-2 rounded-lg hover:bg-gray-200">Settings</a>

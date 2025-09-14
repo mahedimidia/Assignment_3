@@ -16,8 +16,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('Admin.show_categories', compact('categories'));
+        $user = Auth::user();
+        if($user->role === 'admin'){
+            return view('Admin.show_categories', ['categories' => Category::all()]);
+        }else{
+            return view('Admin.show_categories', ['categories' => Category::where('user_id', $user->id)->get()]);
+        }
+
     }
 
     /**
@@ -41,7 +46,7 @@ class CategoryController extends Controller
         Category::create([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
-            'user_id' => Auth::id(),
+            'user_id' => $request->user_id,
         ]);
 
         return redirect()->route('categories.index')->with('success', 'Category created successfully.');
@@ -61,8 +66,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $data=Category::findOrFail($id);
-        return view('Admin.edit_category',compact('data'));
+        $category = Category::findOrFail($id);
+        return view('Admin.edit_category', compact('category'));
     }
 
     /**

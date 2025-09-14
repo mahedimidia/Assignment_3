@@ -10,6 +10,8 @@ use App\Http\Controllers\AdminController;
 Route::view('/admin', 'Admin.dashboard')->name('admin.dashboard');
 
  Route::resource('posts', PostController::class);
+ Route::patch('/posts/{post}/toggle-status', [PostController::class, 'toggleStatus'])->name('posts.toggleStatus');
+
  Route::resource('categories', CategoryController::class);
 
 Route::get('/', [HomeController::class, 'index'])->name('home.dashboard');

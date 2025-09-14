@@ -15,6 +15,8 @@ class Post extends Model
         'author',
         'body',
         'status',
+        'category_id',
+        'user_id',
     ];
 
     protected $casts = [

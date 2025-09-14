@@ -21,18 +21,10 @@
     <div>
       <label class="block text-gray-700 mb-1">Slug</label>
       <input type="text" name="slug" placeholder="enter-category-slug"
-        class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300" required>
+        class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300">
     </div>
 
-    <div>
-      <label class="block text-gray-700 mb-1">User</label>
-      <select name="user_id" class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300" required>
-        <option value="">Select User</option>
-        <!-- loop users dynamically -->
-        <option value="1">Admin</option>
-        <option value="2">John Doe</option>
-      </select>
-    </div>
+    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
 
     <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
       Save Category
