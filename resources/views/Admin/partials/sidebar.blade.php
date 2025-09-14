@@ -27,6 +27,13 @@
           </div>
         </div>
 
-        <a href="#users" class="block px-3 py-2 rounded-lg hover:bg-gray-200">Users</a>
+       
+        <a href="#settings" class="block px-3 py-2 rounded-lg hover:bg-gray-200">Settings</a>
+        
+        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button class="block px-3 py-2 rounded-lg hover:bg-gray-200">Logout</button>
+        </form>
+
       </nav>
     </aside>

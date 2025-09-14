@@ -7,7 +7,7 @@
      <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
        <h2 class="text-2xl font-bold mb-6 text-center">Register</h2>
        
-       <form action="{{route('register')}}" method="POST" class="space-y-4">
+       <form action="{{route('home.create.user')}}" method="POST" class="space-y-4">
 
        @csrf
 

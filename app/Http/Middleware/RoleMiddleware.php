@@ -17,13 +17,10 @@ class RoleMiddleware
     public function handle(Request $request, Closure $next): Response
     {
 
-        if (Auth::user()->role == 'admin' || Auth::user()->role == 'reader') {
+        $user = Auth::user();
+        if ($user && ($user->role === 'admin' || $user->role === 'content_creator')) {
             return $next($request);
         }
-        else{
-            return redirect()->route('home.dashboard');
-        }
-        
-        
+        return redirect('/');
     }
 }
