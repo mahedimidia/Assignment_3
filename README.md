@@ -118,14 +118,11 @@ app/
 ---
 
 ## 👥 Default Roles & Access
-- **Administrator**
-  - Email: `admin@example.com`
-  - Password: `password`
-- **Content Creator**
-  - Email: `creator@example.com`
-  - Password: `password`
-- **Reader**
-  - Register directly or login with a seeded test account.
+| Name         | Email                                       | Role             | Password |
+| ------------ | ------------------------------------------- | ---------------- | -------- |
+| Mahedi Hasan | [mahedi@gmail.com](mailto:mahedi@gmail.com) | admin            | 12345678 |
+| Rabbil       | [rabbil@gmail.com](mailto:rabbil@gmail.com) | content\_creator | 12345678 |
+| Test Reader  | [reader@gmail.com](mailto:reader@gmail.com) | reader           | 12345678 |
 
 
 
