@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\support\Facades\Auth;
 use App\Models\Category;
+use Illuminate\Support\Facades\Gate;
 class PostController extends Controller
 {
     /**
@@ -84,7 +85,9 @@ public function index()
      */
     public function edit(string $id)
     {
+        
         $post = Post::findOrFail($id);
+        Gate::authorize('permission',$post);
         $categories = Category::get();
         return view('Admin.edit_post', compact('post', 'categories'));
     }
@@ -94,6 +97,7 @@ public function index()
      */
     public function update(Request $request, string $id)
     {
+        
         $request->validate([
             'title' => 'required|string|max:255',
             'author' => 'required|string|max:255',
@@ -102,7 +106,7 @@ public function index()
         ]);
 
         $post = Post::findOrFail($id);
-
+        Gate::authorize('permission',$post);
         $post->update([
             'title' => $request->title,
             'author' => $request->author,
@@ -120,6 +124,7 @@ public function index()
     public function destroy(string $id)
     {
         $post = Post::findOrFail($id);
+        Gate::authorize('permission',$post);
         $post->delete();
 
         return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');

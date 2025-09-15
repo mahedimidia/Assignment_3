@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('home/register', [RegisteredUserController::class, 'store'])->name('home.create.user');
 Route::post('home/login', [AuthenticatedSessionController::class, 'store'])->name('login');
-
+Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+/*
 Route::middleware('guest')->group(function () {
     
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
@@ -28,8 +29,6 @@ Route::middleware('guest')->group(function () {
     Route::post('reset-password', [NewPasswordController::class, 'store'])
         ->name('password.store');
 });
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
@@ -53,3 +52,4 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 });
+*/
