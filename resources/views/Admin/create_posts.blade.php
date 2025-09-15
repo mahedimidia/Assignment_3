@@ -3,7 +3,6 @@
     <title>Create New Post</title>
 @endpush
 @section('admin_content')
-<main class="flex-1 p-6 space-y-10">
       <!-- Create Post Section -->
 <h1 class="text-xl font-bold mb-4">Create Post</h1>
 
@@ -48,6 +47,6 @@
     </button>
   </form>
 </section>
-</main>
+
 
 @endsection

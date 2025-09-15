@@ -3,7 +3,7 @@
     <title>Edit Post</title>
 @endpush
 @section('admin_content')
-<main class="flex-1 p-6 space-y-10">
+
     <div class="container mx-auto p-4">
         <h1 class="text-3xl font-bold mb-6">Edit Post</h1>
         <form action="{{ route('posts.update', $post->id) }}" method="POST" class="space-y-4">
@@ -51,5 +51,5 @@
             </div>
         </form>
     </div>
-</main>
+
 @endsection

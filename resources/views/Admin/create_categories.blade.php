@@ -3,7 +3,7 @@
     <title>Create New Categoy</title>
 @endpush
 @section('admin_content')
-<main class="flex-1 p-6 space-y-10">
+
   <h1 class="text-xl font-bold mb-4">Create Category</h1>
 
 <section id="create_category" class="p-6 bg-white rounded-2xl shadow mt-6">
@@ -32,6 +32,5 @@
   </form>
 </section>
 
-</main>
 
 @endsection

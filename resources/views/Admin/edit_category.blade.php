@@ -3,7 +3,7 @@
     <title>Edit Category</title>
 @endpush
 @section('admin_content')
-<main class="flex-1 p-6 space-y-10">
+
     <div class="container mx-auto p-4">
         <h1 class="text-3xl font-bold mb-6">Edit Category</h1>
         <form action="{{ route('categories.update', $category->id) }}" method="POST" class="space-y-4">
@@ -21,6 +21,6 @@
             </div>
         </form>
     </div>
-</main>
+
 
 @endsection

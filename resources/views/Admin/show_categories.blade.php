@@ -5,7 +5,7 @@
 @endpush
 
 @section('admin_content')
-<main class="flex-1 p-6 space-y-10 bg-gray-50 min-h-screen">
+
     <div class="container mx-auto p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
 
         <!-- Header -->
@@ -70,5 +70,5 @@
             </table>
         </div>
     </div>
-</main>
+
 @endsection
